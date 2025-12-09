@@ -1,0 +1,35 @@
+{
+  "name": "@apiverve/tlscheck",
+  "version": "1.1.12",
+  "description": "TLS Check is an API that inspects the TLS/SSL configuration of a server identified by its IP address. It reports supported protocols, cipher suites, and potential vulnerabilities.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "mocha",
+    "example": "node examples/basic.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apiverve/tlscheck-api.git",
+    "directory": "npm"
+  },
+  "keywords": [
+    "tls check", "ssl check", "tls configuration", "ssl scan", "https"
+  ],
+  "author": "APIVerve <hello@apiverve.com> (http://apiverve.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apiverve/tlscheck-api/issues"
+  },
+  "homepage": "https://apiverve.com/marketplace/tlscheck?utm_source=npm",
+  "devDependencies": {
+    "mocha": "^11.0.1",
+    "chai": "^5.1.2",
+    "dotenv": "^16.4.7"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "promise": "^8.3.0",
+    "axios": "1.13.2"
+  }
+}
