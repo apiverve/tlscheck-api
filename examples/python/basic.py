@@ -17,14 +17,11 @@ def call_tlscheck_api():
     Make a GET request to the TLS Checker API
     """
     try:
-        # Query parameters
-        params &#x3D; {&#x27;domain&#x27;: &#x27;amazon.com&#x27;, &#x27;port&#x27;: 443}
-
         headers = {
             'x-api-key': API_KEY
         }
 
-        response = requests.get(API_URL, headers=headers, params=params)
+        response = requests.get(API_URL, headers=headers)
 
         # Raise exception for HTTP errors
         response.raise_for_status()
