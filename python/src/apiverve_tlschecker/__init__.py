@@ -1,1 +1,3 @@
-from .apiClient import TlscheckAPIClient
+from .apiClient import TlscheckAPIClient, TlscheckAPIClientError
+
+__all__ = ['TlscheckAPIClient', 'TlscheckAPIClientError']
