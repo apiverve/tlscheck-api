@@ -30,7 +30,7 @@ class tlscheckWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/tlscheck';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"domain":{"type":"string","required":true},"port":{"type":"integer","required":false,"min":1,"max":65535,"default":443}};
+        this.validationRules = {"domain":{"type":"string","required":true,"format":"domain"},"port":{"type":"integer","required":false,"min":1,"max":65535,"default":443}};
     }
 
     /**
