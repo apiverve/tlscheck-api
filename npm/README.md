@@ -1,6 +1,6 @@
 # TLS Checker API
 
-TLS Check is an API that inspects the TLS/SSL configuration of a server identified by its IP address. It reports supported protocols, cipher suites, and potential vulnerabilities.
+TLS Check inspects which TLS/SSL protocol versions a server supports. It probes TLS 1.0 through 1.3, reports which are negotiable, and derives a security verdict — the highest supported version, whether deprecated protocols are still exposed, and a composite risk score.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -131,7 +131,12 @@ async function makeRequest() {
       "TLSv1.1": false,
       "TLSv1.2": true,
       "TLSv1.3": true
-    }
+    },
+    "highestVersion": "TLSv1.3",
+    "hasDeprecatedTLS": false,
+    "isSecure": true,
+    "riskScore": 0,
+    "riskLevel": "low"
   }
 }
 ```
