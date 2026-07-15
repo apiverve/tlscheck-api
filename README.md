@@ -1,6 +1,6 @@
 # [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 
-TLS Check is an API that inspects the TLS/SSL configuration of a server identified by its IP address. It reports supported protocols, cipher suites, and potential vulnerabilities.
+TLS Check inspects which TLS/SSL protocol versions a server supports. It probes TLS 1.0 through 1.3, reports which are negotiable, and derives a security verdict — the highest supported version, whether deprecated protocols are still exposed, and a composite risk score.
 
 The TLS Checker API provides a simple, reliable way to integrate tls checker functionality into your applications. Built for developers who need production-ready tls checker capabilities without the complexity of building from scratch.
 
@@ -30,7 +30,12 @@ The TLS Checker API provides a simple, reliable way to integrate tls checker fun
 ```javascript
 async function callTLSCheckerAPI() {
     try {
-        const response = await fetch('https://api.apiverve.com/v1/tlscheck', {
+        const params = new URLSearchParams({
+            domain: 'amazon.com',
+            port: 443
+        });
+
+        const response = await fetch(`https://api.apiverve.com/v1/tlscheck?${params}`, {
             method: 'GET',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE'
@@ -50,7 +55,7 @@ callTLSCheckerAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/tlscheck?param=value" \
+curl -X GET "https://api.apiverve.com/v1/tlscheck?domain=amazon.com&port=443" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -150,7 +155,7 @@ go get github.com/apiverve/tlscheck-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +174,7 @@ go get github.com/apiverve/tlscheck-api/go
 The TLS Checker API is commonly used for:
 
 - **Web Applications** - Add tls checker features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with tls checker capabilities
 - **Data Pipelines** - Process and analyze data at scale
