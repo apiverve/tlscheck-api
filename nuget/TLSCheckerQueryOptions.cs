@@ -20,6 +20,6 @@ namespace APIVerve.API.TLSChecker
         /// The port to connect to (usually 443 for HTTPS)
         /// </summary>
         [JsonProperty("port")]
-        public string Port { get; set; }
+        public int? Port { get; set; }
     }
 }
