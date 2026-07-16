@@ -25,6 +25,9 @@ namespace APIVerve.API.TLSChecker
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -33,6 +36,33 @@ namespace APIVerve.API.TLSChecker
         public string Domain { get; set; }
 
         [JsonProperty("tlsVersions")]
-        public Dictionary<string, bool> TlsVersions { get; set; }
+        public Dictionary<string, bool?> TlsVersions { get; set; }
+
+        [JsonProperty("highestVersion")]
+        public string HighestVersion { get; set; }
+
+        [JsonProperty("hasDeprecatedTLS")]
+        public bool? HasDeprecatedTls { get; set; }
+
+        [JsonProperty("isSecure")]
+        public bool? IsSecure { get; set; }
+
+        [JsonProperty("riskScore")]
+        public long? RiskScore { get; set; }
+
+        [JsonProperty("riskLevel")]
+        public string RiskLevel { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
