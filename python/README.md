@@ -1,13 +1,12 @@
 TLS Checker API
 ============
 
-TLS Check is an API that inspects the TLS/SSL configuration of a server identified by its IP address. It reports supported protocols, cipher suites, and potential vulnerabilities.
+TLS Check inspects which TLS/SSL protocol versions a server supports. It probes TLS 1.0 through 1.3, reports which are negotiable, and derives a security verdict — the highest supported version, whether deprecated protocols are still exposed, and a composite risk score.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-tlschecker.svg)](https://pypi.org/project/apiverve-tlschecker/)
+
+This is a Python wrapper for the [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-tlschecker
 
 ## Configuration
 
-Before using the tlscheck API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the TLS Checker API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -63,7 +62,7 @@ except Exception as e:
 
 ## Usage
 
-The TLS Checker API documentation is found here: [https://docs.apiverve.com/ref/tlscheck](https://docs.apiverve.com/ref/tlscheck?utm_source=pypi&utm_medium=readme).
+The TLS Checker API documentation is found here: [https://docs.apiverve.com/ref/tlscheck](https://docs.apiverve.com/ref/tlscheck?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -110,11 +109,16 @@ print(result)
   "data": {
     "domain": "amazon.com",
     "tlsVersions": {
-      "TLSv1": false,
-      "TLSv1.1": false,
+      "TLSv1": true,
+      "TLSv1.1": true,
       "TLSv1.2": true,
       "TLSv1.3": true
-    }
+    },
+    "highestVersion": "TLSv1.3",
+    "hasDeprecatedTLS": true,
+    "isSecure": false,
+    "riskScore": 55,
+    "riskLevel": "medium"
   }
 }
 ```
@@ -257,7 +261,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -268,12 +272,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
