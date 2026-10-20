@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/tlscheck",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "TLS Check inspects which TLS/SSL protocol versions a server supports. It probes TLS 1.0 through 1.3, reports which are negotiable, and derives a security verdict — the highest supported version, whether deprecated protocols are still exposed, and a composite risk score.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "tls check", "ssl check", "tls configuration", "ssl scan", "https"
+    "tls checker api", "tls check api", "check tls version api", "tls api", "ssl checker api"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/tlscheck-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/tlscheck?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/tlscheck?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
