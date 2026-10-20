@@ -20,7 +20,7 @@ servers:
 paths:
   /v1/tlscheck:
     get:
-      summary: Check TLS/SSL Configuration
+      summary: TLS Checker
       description: >-
         TLS Check is an API that inspects the TLS/SSL configuration of a server
         identified by its IP address. It reports supported protocols, cipher
@@ -64,15 +64,15 @@ paths:
                 data:
                   domain: amazon.com
                   tlsVersions:
-                    TLSv1: false
-                    TLSv1.1: false
+                    TLSv1: true
+                    TLSv1.1: true
                     TLSv1.2: true
                     TLSv1.3: true
                   highestVersion: TLSv1.3
-                  hasDeprecatedTLS: false
-                  isSecure: true
-                  riskScore: 0
-                  riskLevel: low
+                  hasDeprecatedTLS: true
+                  isSecure: false
+                  riskScore: 55
+                  riskLevel: medium
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':

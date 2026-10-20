@@ -1,13 +1,13 @@
-# [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
 TLS Check inspects which TLS/SSL protocol versions a server supports. It probes TLS 1.0 through 1.3, reports which are negotiable, and derives a security verdict — the highest supported version, whether deprecated protocols are still exposed, and a composite risk score.
 
 The TLS Checker API provides a simple, reliable way to integrate tls checker functionality into your applications. Built for developers who need production-ready tls checker capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -162,7 +162,7 @@ go get github.com/apiverve/tlscheck-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/tlscheck](https://docs.apiverve.com/ref/tlscheck)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -192,11 +192,39 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the TLS Checker API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "domain": "amazon.com",
+    "tlsVersions": {
+      "TLSv1": true,
+      "TLSv1.1": true,
+      "TLSv1.2": true,
+      "TLSv1.3": true
+    },
+    "highestVersion": "TLSv1.3",
+    "hasDeprecatedTLS": true,
+    "isSecure": false,
+    "riskScore": 55,
+    "riskLevel": "medium"
+  }
 }
 ```
 
@@ -204,7 +232,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
-- 🏠 **API Home**: [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [TLS Checker API](https://apiverve.com/marketplace/tlscheck?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)
