@@ -25,13 +25,19 @@ declare module '@apiverve/tlscheck' {
 
 
   interface TLSCheckerData {
-      domain:           null | string;
-      tlsVersions:      { [key: string]: boolean | null };
-      highestVersion:   null | string;
-      hasDeprecatedTLS: boolean | null;
-      isSecure:         boolean | null;
-      riskScore:        number | null;
-      riskLevel:        null | string;
+      domain:             null | string;
+      tlsVersions:        { [key: string]: boolean | null };
+      highestVersion:     null | string;
+      negotiatedCipher:   null | string;
+      forwardSecrecy:     boolean | null;
+      certificateTrusted: boolean | null;
+      certificateError:   null;
+      hasDeprecatedTLS:   boolean | null;
+      isSecure:           boolean | null;
+      riskScore:          number | null;
+      riskLevel:          null | string;
+      grade:              null | string;
+      gradeReasons:       any[];
   }
 
   export default class tlscheckWrapper {
