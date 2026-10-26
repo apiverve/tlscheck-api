@@ -41,6 +41,18 @@ namespace APIVerve.API.TLSChecker
         [JsonProperty("highestVersion")]
         public string HighestVersion { get; set; }
 
+        [JsonProperty("negotiatedCipher")]
+        public string NegotiatedCipher { get; set; }
+
+        [JsonProperty("forwardSecrecy")]
+        public bool? ForwardSecrecy { get; set; }
+
+        [JsonProperty("certificateTrusted")]
+        public bool? CertificateTrusted { get; set; }
+
+        [JsonProperty("certificateError")]
+        public object CertificateError { get; set; }
+
         [JsonProperty("hasDeprecatedTLS")]
         public bool? HasDeprecatedTls { get; set; }
 
@@ -52,6 +64,12 @@ namespace APIVerve.API.TLSChecker
 
         [JsonProperty("riskLevel")]
         public string RiskLevel { get; set; }
+
+        [JsonProperty("grade")]
+        public string Grade { get; set; }
+
+        [JsonProperty("gradeReasons")]
+        public object[] GradeReasons { get; set; }
     }
 
     public partial class Premium

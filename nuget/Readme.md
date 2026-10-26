@@ -1,7 +1,7 @@
 TLS Checker API
 ============
 
-TLS Check inspects which TLS/SSL protocol versions a server supports. It probes TLS 1.0 through 1.3, reports which are negotiable, and derives a security verdict — the highest supported version, whether deprecated protocols are still exposed, and a composite risk score.
+TLS Checker tests which TLS protocol versions a server accepts by running a live handshake for each of TLS 1.0, 1.1, 1.2 and 1.3. It reports the highest version, the cipher the server picks, whether the certificate validates, whether deprecated protocols are still exposed, a risk score and a letter grade from a published rubric.
 
 
 [![NuGet version](https://img.shields.io/nuget/v/APIVerve.API.TLSChecker.svg)](https://www.nuget.org/packages/APIVerve.API.TLSChecker)
@@ -377,16 +377,22 @@ using (var apiClient = new TLSCheckerAPIClient("[YOUR_API_KEY]"))
   "data": {
     "domain": "amazon.com",
     "tlsVersions": {
-      "TLSv1": true,
-      "TLSv1.1": true,
+      "TLSv1": false,
+      "TLSv1.1": false,
       "TLSv1.2": true,
       "TLSv1.3": true
     },
     "highestVersion": "TLSv1.3",
-    "hasDeprecatedTLS": true,
-    "isSecure": false,
-    "riskScore": 55,
-    "riskLevel": "medium"
+    "negotiatedCipher": "TLS_AES_256_GCM_SHA384",
+    "forwardSecrecy": true,
+    "certificateTrusted": true,
+    "certificateError": null,
+    "hasDeprecatedTLS": false,
+    "isSecure": true,
+    "riskScore": 0,
+    "riskLevel": "low",
+    "grade": "A+",
+    "gradeReasons": []
   }
 }
 ```
